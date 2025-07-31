@@ -1,0 +1,56 @@
+{
+    "name": "code-context",
+    "version": "0.0.10",
+    "description": "A powerful code indexing tool with multi-platform support",
+    "private": true,
+    "scripts": {
+        "build": "pnpm -r --filter='!./examples/*' build && pnpm -r --filter='./examples/*' build",
+        "build:core": "pnpm --filter @zilliz/code-context-core build",
+        "build:vscode": "pnpm --filter semanticcodesearch compile",
+        "build:mcp": "pnpm --filter @zilliz/code-context-mcp build",
+        "dev": "pnpm -r dev",
+        "dev:core": "pnpm --filter @zilliz/code-context-core dev",
+        "dev:vscode": "pnpm --filter semanticcodesearch watch",
+        "dev:mcp": "pnpm --filter @zilliz/code-context-mcp dev",
+        "clean": "pnpm -r clean",
+        "lint": "pnpm -r lint",
+        "lint:fix": "pnpm -r run lint:fix",
+        "typecheck": "pnpm -r run typecheck",
+        "release:core": "pnpm --filter @zilliz/code-context-core... run build && pnpm --filter @zilliz/code-context-core publish --access public --no-git-checks",
+        "release:mcp": "pnpm --filter @zilliz/code-context-mcp... run build && pnpm --filter @zilliz/code-context-mcp publish --access public --no-git-checks",
+        "release:vscode": "pnpm --filter @zilliz/code-context-core build && pnpm --filter semanticcodesearch run webpack && pnpm --filter semanticcodesearch release",
+        "example:basic": "pnpm --filter code-context-basic-example start"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@typescript-eslint/eslint-plugin": "^8.31.1",
+        "@typescript-eslint/parser": "^8.31.1",
+        "assert": "^2.1.0",
+        "browserify-zlib": "^0.2.0",
+        "eslint": "^9.25.1",
+        "https-browserify": "^1.0.0",
+        "os-browserify": "^0.3.0",
+        "stream-http": "^3.2.0",
+        "tree-sitter-cli": "^0.25.6",
+        "tree-sitter-cpp": "^0.23.4",
+        "tree-sitter-go": "^0.23.4",
+        "tree-sitter-java": "^0.21.0",
+        "tree-sitter-javascript": "^0.23.1",
+        "tree-sitter-python": "^0.21.0",
+        "tree-sitter-rust": "^0.21.0",
+        "tree-sitter-typescript": "^0.23.2",
+        "typescript": "^5.8.3",
+        "url": "^0.11.4",
+        "vm-browserify": "^1.1.2"
+    },
+    "engines": {
+        "node": ">=20.0.0",
+        "pnpm": ">=10.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zilliztech/code-context.git"
+    },
+    "license": "MIT",
+    "author": "Cheney Zhang <277584121@qq.com>"
+}
